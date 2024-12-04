@@ -12,7 +12,8 @@ class DivisiController extends Controller
      */
     public function index()
     {
-        return view('divisi.index');
+        $data = Divisi::all();
+        return view('divisi.index', compact('data'));
     }
 
     /**
@@ -28,7 +29,9 @@ class DivisiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        Divisi::create($input);
+        return back()->with('success', 'Data berhasil dibuat');
     }
 
     /**

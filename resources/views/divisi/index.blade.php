@@ -29,7 +29,18 @@
                     </thead>
 
                     <tbody>
-
+                        @foreach ($data as $item)
+                        <tr>
+                            <td>{{$item->nama_divisi}}</td>
+                            <td>
+                                <form action="" method="post">
+                                    @csrf
+                                    <a href="" class="btn btn-info">detail</a>
+                                    <button type="submit" class="btn btn-danger">hapus</button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -49,7 +60,7 @@
                 </button>
             </div>
 
-            <form action="" method="post">
+            <form action="{{route('divisi.store')}}" method="post">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
