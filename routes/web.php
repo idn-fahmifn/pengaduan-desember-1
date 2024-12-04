@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Http\Controllers\DivisiController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,8 +20,8 @@ Route::middleware('auth')->group(function () {
 });
 
 
-
-Route::view('tampilan', 'template.template');
+// Route divisi
+Route::resource('divisi', DivisiController::class);
 
 
 

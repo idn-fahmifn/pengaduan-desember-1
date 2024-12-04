@@ -18,27 +18,14 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="dripicons-suitcase"></i>
-                        <span> User Interface </span>
+                        <span> Pengaduan </span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="ui-buttons.html">Buttons</a></li>
-                        <li><a href="ui-cards.html">Cards</a></li>
-                        <li><a href="ui-tabs-accordions.html">Tabs &amp; Accordions</a></li>
-                        <li><a href="ui-modals.html">Modals</a></li>
-                        <li><a href="ui-images.html">Images</a></li>
-                        <li><a href="ui-alerts.html">Alerts</a></li>
-                        <li><a href="ui-progressbars.html">Progress Bars</a></li>
-                        <li><a href="ui-dropdowns.html">Dropdowns</a></li>
-                        <li><a href="ui-lightbox.html">Lightbox</a></li>
-                        <li><a href="ui-navs.html">Navs</a></li>
-                        <li><a href="ui-pagination.html">Pagination</a></li>
-                        <li><a href="ui-popover-tooltips.html">Popover &amp; Tooltips</a></li>
-                        <li><a href="ui-badge.html">Badge</a></li>
-                        <li><a href="ui-carousel.html">Carousel</a></li>
-                        <li><a href="ui-video.html">Video</a></li>
-                        <li><a href="ui-typography.html">Typography</a></li>
-                        <li><a href="ui-sweet-alert.html">Sweetalert</a></li>
-                        <li><a href="ui-grid.html">Grid</a></li>
+                        <li><a href="ui-buttons.html">Semua Pengaduan</a></li>
+                        <li><a href="ui-cards.html">Pengaduan Pending</a></li>
+                        <li><a href="ui-cards.html">Pengaduan Diproses</a></li>
+                        <li><a href="ui-cards.html">Pengaduan Selesai</a></li>
+                        <li><a href="ui-cards.html">Pengaduan Ditolak</a></li>
                     </ul>
                 </li>
             </ul>
