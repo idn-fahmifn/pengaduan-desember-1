@@ -13,7 +13,14 @@
                 </div>
 
                 <p class="card-title-desc">Data Divisi</p>
-                
+
+                @if (!$bio)
+                    <span>Anda belum melengkapi biodata</span>
+                @else
+                    @foreach ($bio as $item)
+                    {{$item}}
+                    @endforeach
+                @endif
 
             </div>
         </div>
