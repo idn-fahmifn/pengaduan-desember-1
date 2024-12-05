@@ -27,10 +27,8 @@ Route::middleware(['auth', AdminMiddleware::class])->group(function () {
 
 // grouping khusus untuk route 
 Route::prefix('user-area')->group(function () {
-
     // jika bukan admin, indexnya akan diarahkan ke route berikut : 
     Route::get('/home', [HomeController::class, 'home'])->name('halaman-user');
-
     // route menyimpan data biodata.
     Route::post('biodata-simpan', [HomeController::class, 'store'])->name('biodata.store');
 

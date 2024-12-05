@@ -1,5 +1,11 @@
 @extends('template.template')
 
+@section('page-title')
+    Halaman Pengaduan
+@endsection
+
+@endsection
+
 @section('content')
 
 <div class="row">

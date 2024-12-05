@@ -71,7 +71,9 @@
                     </button>
 
                     <div class="d-none d-sm-block ms-2">
-                        <h4 class="page-title font-size-18">Starter Page</h4>
+                        <h4 class="page-title font-size-18">
+                            @yield('page-title')
+                        </h4>
                     </div>
 
                 </div>
@@ -232,8 +234,18 @@
                             <a class="dropdown-item" href="#"><i class="dripicons-lock font-size-16 align-middle me-2"></i> Lock
                                 screen</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#"><i class="dripicons-exit font-size-16 align-middle me-2"></i>
+
+                            
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                <i class="dripicons-exit font-size-16 align-middle me-2"></i>
                                 Logout</a>
+
+                            <form action="{{route('logout')}}" id="logout-form" method="post">
+                                @csrf
+                            </form>
+
                         </div>
                     </div>
 
@@ -362,7 +374,7 @@
                     </ul>
 
                 </div>
-            
+
             </div>
 
         </div>
