@@ -31,6 +31,7 @@ class TanggapanController extends Controller
      */
     public function store(Request $request)
     {
+
         if($request->hasFile('dokumentasi'))
         {
             $photo = $request->file('dokumentasi'); //untuk mengambil value (photonya)
@@ -46,10 +47,12 @@ class TanggapanController extends Controller
             'tanggal_respon' => $tanggal,
             'tanggal_update' => $tanggal,
             'deskripsi' => $request->deskripsi,
+            'dokumentasi' => $request->dokumentasi,
         ]);
-        $status = Pengaduan::find($request->id_pengaduan);
-        $status->status = $request->status;
-        $status->save();
+
+        $pengaduan = Pengaduan::find($request->id_pengaduan);
+        $pengaduan->status = $request->status;
+        $pengaduan->save();
 
         return back()->with('success', 'pengaduan ditanggapi');
 
