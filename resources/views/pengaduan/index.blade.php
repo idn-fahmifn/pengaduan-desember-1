@@ -23,7 +23,9 @@
                     style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                         <tr>
-                            <th>Nama Divisi</th>
+                            <th>Judul Laporan</th>
+                            <th>Tanggal Laporan</th>
+                            <th>Status</th>
                             <th>Pilihan</th>
                         </tr>
                     </thead>
@@ -31,11 +33,13 @@
                     <tbody>
                         @foreach ($data as $item)
                         <tr>
-                            <td>{{$item->nama_divisi}}</td>
+                            <td>{{$item->judul_pengaduan}}</td>
+                            <td>{{$item->tanggal_pengaduan}}</td>
+                            <td>{{$item->status}}</td>
                             <td>
                                 <form action="" method="post">
                                     @csrf
-                                    <a href="" class="btn btn-info">detail</a>
+                                    <a href="{{route('pengaduan.show', $item->id)}}" class="btn btn-info">detail</a>
                                     <button type="submit" class="btn btn-danger">hapus</button>
                                 </form>
                             </td>

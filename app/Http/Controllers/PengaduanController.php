@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pengaduan;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PengaduanController extends Controller
 {
@@ -13,8 +14,10 @@ class PengaduanController extends Controller
      */
     public function index()
     {
-        $data = Pengaduan::all();
+        $data = Pengaduan::where('id_user', Auth::user()->id)->get()->all();
+
         return view('pengaduan.index', compact('data'));
+
     }
 
     /**
@@ -37,7 +40,7 @@ class PengaduanController extends Controller
             'dokumentasi' => 'required|max:5124|mimes:png,jpg,jpeg'
         ]);
 
-        $tanggal = Carbon::now()->format('d-m-y');
+        $tanggal = Carbon::now()->format('d-m-Y');
         $input['tanggal_pengaduan'] = $tanggal;
 
         // function menyimpan gambar
@@ -46,7 +49,7 @@ class PengaduanController extends Controller
             $photo = $request->file('dokumentasi'); //untuk mengambil value (photonya)
             $path_simpan = 'public/images/pengaduan'; //menentukan path penyimpanan.
             $format = $photo->getClientOriginalExtension(); //mengambil format gambar
-            $nama = 'dokumentasi-pengaduan-'.Carbon::now()->format('ymd-his').random_int(000000,999999).'.'.$format;
+            $nama = 'dokumentasi-pengaduan-'.Carbon::now()->format('Ymd-his').random_int(000000,999999).'.'.$format;
             $simpan = $photo->storeAs($path_simpan, $nama); //menyimpan ke path.
             $input['dokumentasi'] = $nama; //value yang disimpan di database.
         }
@@ -59,9 +62,10 @@ class PengaduanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Pengaduan $pengaduan)
+    public function show($id)
     {
-        //
+        $data = Pengaduan::find($id);
+        return view('pengaduan.detail', compact('data'));
     }
 
     /**
