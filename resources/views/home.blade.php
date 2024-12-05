@@ -15,13 +15,11 @@
                 <p class="card-title-desc">Data Divisi</p>
 
                 @if (!$bio)
-                <span>Anda belum melengkapi biodata</span>
+                    <span>Anda belum melengkapi biodata</span>
                 <button type="button" class="btn btn-primary waves-effect waves-light" data-bs-toggle="modal"
                     data-bs-target=".bs-example-modal-xl">Lengkapi data</button>
                 @else
-                @foreach ($bio as $item)
-                {{$item}}
-                @endforeach
+                    <span>Data sudah dilengkapi</span>
                 @endif
 
             </div>
@@ -41,7 +39,7 @@
                 </button>
             </div>
 
-            <form action="#" method="post" enctype="multipart/form-data">
+            <form action="{{route('biodata.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
