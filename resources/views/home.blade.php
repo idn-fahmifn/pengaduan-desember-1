@@ -47,7 +47,7 @@
                     <div class="form-group">
                         <label>Nama User</label>
                         <input type="text" value="{{Auth::user()->name}}" readonly class="form-control">
-                        <input type="text" value="{{Auth::user()->id}}" readonly class="form-control">
+                        <input type="text" value="{{Auth::user()->id}}" name="id_user" hidden>
                     </div>
                     <div class="form-group">
                         <label for="">No. Handphone</label>
