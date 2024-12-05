@@ -24,11 +24,16 @@ Route::middleware(['auth', AdminMiddleware::class])->group(function () {
     })->name('dashboard');
 });
 
-// jika bukan admin, indexnya akan diarahkan ke route berikut : 
-Route::get('/home', [HomeController::class, 'home'])->name('halaman-user');
+// grouping khusus untuk route 
+Route::prefix('user-area')->group(function () {
 
-// route menyimpan data biodata.
-Route::post('biodata-simpan', [HomeController::class, 'store'])->name('biodata.store');
+    // jika bukan admin, indexnya akan diarahkan ke route berikut : 
+    Route::get('/home', [HomeController::class, 'home'])->name('halaman-user');
+
+    // route menyimpan data biodata.
+    Route::post('biodata-simpan', [HomeController::class, 'store'])->name('biodata.store');
+    
+})->middleware('auth');
 
 
 
@@ -39,4 +44,4 @@ Route::resource('divisi', DivisiController::class);
 
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
